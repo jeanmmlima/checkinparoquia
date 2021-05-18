@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" href="/">Paróquia de Macaíba</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/usuario/home">Home <span class="sr-only">(current)</span></a>
+      </li>
+      
+    </ul>
+    {{#if user}}
+      <span class="navbar-text">
+        <table>
+          <tr>
+          <th><small class="nav-link"> Bem-vindo, {{user.nome}}!</small></th>
+          <th><small><a class="nav-link" href="/usuario/logout"><button class="btn btn-primary">Sair</button></a></small></th>
+          </tr>
+          
+        </table>
+          
+      </span>
+    {{else}}
+    <span class="navbar-text">
+      <a class="nav-link" href="/">Login</a>
+    </span>
+    {{/if}}
+
+    
+  </div>
+</nav>

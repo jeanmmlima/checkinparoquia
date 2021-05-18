@@ -1,0 +1,69 @@
+<h2>Eventos</h2>
+<hr>
+<a href="/admin/eventos/add"><button class="btn btn-primary"><i class="icon-plus"></i> Novo Evento Religioso</button></a>
+
+
+<div class="row">
+
+{{#each eventos}}
+<div class="col-sm-4">
+    <div class="card mt-4">
+        <div class="card-body">
+            <h5>{{descricao}}</h5>
+            <h6>{{format_data data_horario}}</h6>
+            <small>Participantes: {{participantes}}</small>
+            <br>
+            <a href="/admin/eventos/edit/{{_id}}"><button class="btn btn-outline-dark mt-4"><i class="icon-fixed-width icon-pencil"></i>Editar</button></a>
+            
+
+            <!--<a href="/admin/usuarios/deletar/{{_id}}"><button class="btn btn-outline-dark mt-4"><i class="icon-fixed-width icon-ban-circle"></i>Deletar</button></a> -->
+            <button class="btn btn-outline-dark mt-4 deleter" data-id="{{_id}}" data-toggle="modal" data-target="#myModal"><i class="icon-fixed-width icon-ban-circle"></i>Deletar</button></a>
+            <a href="/admin/eventos/participantes/{{_id}}"><button class="btn btn-outline-dark mt-4"><i class="icon-fixed-width icon-group"></i>Participantes</button></a>
+            <!--
+            <form action="/admin/horarios/deletar" method="POST">
+                <input type="hidden" name="id" value="{{_id}}">
+                <button type="submit" class="btn btn-danger mt-2">Deletar Horário</button>
+            </form>!-->
+        </div>
+    </div>
+</div>
+{{else}}
+<h4 class="mt-3">Nenhuma Evento Cadastrado</h4>
+
+{{/each}}
+
+</div>
+
+
+<!-- start: Delete Coupon Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+    aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                
+            </div>
+            <div class="modal-body">
+        <form action="" method="POST" id="deleteForm">
+            <h5 class="text-center">Você tem certeza que deseja deletar?</h5>
+           </div>
+           <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          <button type="submit" class="btn btn-danger">Deletar</button>
+        </form>
+
+            </div>
+            <!--/modal-footer-collapse -->
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+<script>
+    $(document).on('click', '.deleter', function(e) {
+        e.preventDefault();
+        const id = $(this).data('id');
+        $('#deleteForm').attr('action', '/admin/eventos/deletar/'+ id);
+    })
+</script>

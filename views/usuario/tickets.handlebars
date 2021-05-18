@@ -1,0 +1,21 @@
+<h2>Eventos que você fez check-in</h2>
+<hr>
+<div class="row">
+
+{{#each usereventos}}
+<div class="col-sm-4">
+    <div class="card mt-4">
+        <div class="card-body">
+            <h5>{{evento.descricao}}</h5>
+            <h6>{{format_data evento.data_horario}}</h6>
+            <br>
+            <a href="/usuario/ticket/download/{{_id}}"><button class="btn btn-outline-primary mt-4"><i class="icon-fixed-width icon-file-text-alt"></i>Baixar Senha</button></a>
+        </div>
+    </div>
+</div>
+{{else}}
+<h4 class="mt-3">Você não fez CHECK-IN em nenhum evento ativo!</h4>
+
+{{/each}}
+
+</div>

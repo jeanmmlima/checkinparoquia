@@ -1,0 +1,77 @@
+
+<h3>Crie um Evento</h3>
+<div class="card">
+    <div class="card-body">
+        <form action="/admin/eventos/novo" method="post" class="needs-validation" novalidate>
+            
+            <label for="grupo">Usuário: </label>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1"><i class="icon-fixed-width icon-group"></i></span> 
+                </div>
+                <select name="usuario" class="custom-select" required>
+                {{#each usuarios}}
+                <option value="{{_id}}">{{nome}} - {{email}}</option>
+                {{else}}
+                <option value="0">Nenhum Usuário Registrado</option>
+                {{/each}}
+                </select>
+                <div class="invalid-feedback">Escolher o usuário.</div>
+                
+            </div>
+
+            <label for="descricao">Descrição: </label>
+                <input type="descricao" name="descricao" class="form-control" required>
+                <div class="invalid-feedback">Informar a desricao do evento.</div>
+            <label for="email">Capacidade: </label>
+                <input type="capacidade" name="capacidade" class="form-control" required>
+                <div class="invalid-feedback">Informar a capacidade do evento.</div>
+            
+            <label for="data">Data: </label>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1"><i class="icon-fixed-width icon-calendar"></i></span> 
+                </div>
+                <input type="text" id="datapicker" class="form-control" required>
+                <input type="hidden" name="data" id="data" />
+                <div class="invalid-feedback">Escolher a data.</div>
+            </div>
+
+            <label for="horas">Horário: </label>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1"><i class="icon-fixed-width icon-time"></i></span> 
+                </div>
+                <select name="horas" class="custom-select" placeholder="horas" required>
+                {{#each horas}}
+                <option value="{{valor}}">{{valor}} h</option>
+                {{else}}
+                <option value="0">Nenhuma Hora Registrado</option>
+                {{/each}}
+                </select>
+                <div class="invalid-feedback">Escolher o hora.</div>
+                
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1"><i class="icon-fixed-width icon-time"></i></span> 
+                </div>
+                <select name="minutos" class="custom-select" placeholder="minutos" required>
+                {{#each minutos}}
+                <option value="{{valor}}">{{valor}} min</option>
+                {{else}}
+                <option value="0">Nenhum Minuto Registrado</option>
+                {{/each}}
+                </select>
+                <div class="invalid-feedback">Escolher o minutos.</div>
+                
+            </div>
+
+
+
+            <br>
+            <button type="submit" class="btn btn-dark mt-4">Cadastrar Evento</button>
+            <button type="reset" class="btn btn-dark mt-4">Cancelar</button>
+        </form>
+    </div>
+</div>

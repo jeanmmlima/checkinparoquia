@@ -1,0 +1,25 @@
+
+<h3>Crie sua conta</h3>
+<div class="card">
+    <div class="card-body">
+        <form action="/usuario/registro/novo" method="post" class="needs-validation" novalidate>
+            <label for="nome">Nome: </label>
+                <input type="text" name="nome" class="form-control" required>
+                <div class="invalid-feedback">Informar o Nome.</div>
+            <label for="email">Email: </label>
+                <input type="email" name="email" class="form-control" required>
+                <div class="invalid-feedback">Informar o Email.</div>
+            <label for="email">Contato: </label>
+                <input type="contato" name="contato" class="form-control">
+            <label for="senha">Senha: </label>
+                <input type="password" name="senha" class="form-control" required>
+                <div class="invalid-feedback">Informar a Senha.</div>
+            <label for="senha2"> Repita sua senha: </label>
+                <input type="password" name="senha2" class="form-control" required>
+                <div class="invalid-feedback">Repetir a Senha</div>
+            <br>
+            <button type="submit" class="btn btn-primary mt-4">Cadastrar Usuário</button>
+            <button type="reset" class="btn btn-secondary mt-4">Cancelar</button>
+        </form>
+    </div>
+</div>

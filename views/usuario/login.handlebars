@@ -1,0 +1,26 @@
+
+ <form action="/usuario/login" method="post" class="form-signin needs-validation" novalidate>
+      <h1 class="h3 mb-3 font-weight-normal">Check-In Paróquia de Macaíba</h1>
+      <label for="email" class="sr-only">Email</label>
+      <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1"><i class="icon-fixed-width icon-user"></i></span>
+                </div>
+                <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email" required autofocus>
+                <div class="invalid-feedback">Informe o Email</div>
+      </div>
+      <label for="senha" class="sr-only">Senha</label>
+      <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1"><i class="icon-fixed-width icon-lock"></i></span>
+                </div>
+                <input type="password" id="senha" name="senha" class="form-control" placeholder="Senha" required>
+                <div class="invalid-feedback">Informe a Senha</div>
+        </div>
+      <a href="/usuario/forgot"><p>Esqueceu a senha?</p></a>
+      <button class="btn btn-primary btn-block" type="submit">Entrar</button>
+    <br><br>
+    <h1 class="h4 mb-3 font-weight-normal">Ainda não é cadastrado?</h1>
+     <a href="/usuario/registro"><button class="btn btn-secondary btn-block" type="button">Cadastrar</button></a>
+    <br>
+    </form>

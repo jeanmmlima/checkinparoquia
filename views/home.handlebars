@@ -1,0 +1,99 @@
+{{#if user.admin}}
+<h2>Administração Check-In Paróquia de Macaíba</h2><br>
+<hr class="my-4">
+
+<div class="row">
+
+
+      <div class="col-sm-3">
+        <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+        <div class="card-body">
+            <b><h5 class="card-title">Eventos Religiosos</h5></b>
+            <small><p class="card-text">Click para acessar área de eventos.</p></small><br>
+            <a href="/admin/eventos"><button type="button" class="btn btn-outline-light btn-lg btn-block"><i class="icon-fixed-width icon-gear"></i>Acessar</button></a>
+        </div>
+    </div>
+    </div>
+
+       <div class="col-sm-3">
+        <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+        <div class="card-body">
+            <b><h5 class="card-title">Usuários</h5></b>
+            <small><p class="card-text">Click para acessar área de usuários.</p></small><br>
+            <a href="/admin/usuarios"><button type="button" class="btn btn-outline-light btn-lg btn-block"><i class="icon-fixed-width icon-gear"></i>Acessar</button></a>
+        </div>
+    </div>
+    </div>
+  
+  
+
+</div>
+{{else}}
+
+<h2>Check-In Paróquia de Macaíba</h2><br>
+<a href="/usuario/ticket/{{user.id}}"><button class="btn btn-primary"><i class="icon-copy"></i> Minhas Senhas </button></a>
+<hr class="my-4">
+
+<div class="row">
+
+      {{#each eventos}}
+      <div class="col-sm-4">
+        <div class="card border-dark mb-3" style="max-width: 20rem;">
+        <div class="card-body">
+            
+            <h4 class="card-title">{{descricao}}</h4><br>
+            <h5><p class="card-text">Data: <b>{{getdata data_horario}}</b></p></h5><br>
+            <h5><p class="card-text">Horário: <b>{{gethorario data_horario}}</b></p></h5><br>
+            <h5><p class="card-text">Vagas: <b>{{getvagas capacidade participantes}}</b></p></h5><br>
+            <small><p class="card-text">Capacidade: {{capacidade}}</p></small>
+            <small><p class="card-text">Participantes: {{participantes}}</p></small><br>
+            <button class="btn btn-outline-primary btn-block checkin" data-id="{{_id}}" data-toggle="modal" data-target="#myModal"><i class="icon-fixed-width icon-map-marker"></i>Check-in</button></a>
+            
+        </div>
+    </div>
+    </div>
+    {{else}}
+    <h2>Nenhum evento cadastrado</h2>
+    {{/each}}
+
+  
+  
+
+</div>
+
+{{/if}}
+
+
+
+<!-- start: Checkin Coupon Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+    aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                
+            </div>
+            <div class="modal-body">
+        <form action="" method="POST" id="checkForm">
+            <h5 class="text-center">Você tem certeza que deseja fazer o check-in?</h5>
+           </div>
+           <div class="modal-footer">
+          <button type="submit" class="btn btn-success">Confirmar</button>     
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+        </form>
+
+            </div>
+            <!--/modal-footer-collapse -->
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+<script>
+    $(document).on('click', '.checkin', function(e) {
+        e.preventDefault();
+        const id = $(this).data('id');
+        $('#checkForm').attr('action', '/usuario/checkin/'+ id);
+    })
+</script>
